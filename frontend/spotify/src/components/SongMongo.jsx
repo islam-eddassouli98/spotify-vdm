@@ -47,7 +47,6 @@ const SongMongo = () => {
         }
       )
       .then((response) => {
-        console.log(response);
         dispatch(setAddedSong(response.data));
       })
       .catch((error) => {
@@ -58,13 +57,10 @@ const SongMongo = () => {
     //Check if addesdsong.data.mongoitems.name are equal to song.name
     //if yes set songpatched to AddedSong.data.mongoitems[i]
     //if no set songpatched to song
-    console.log("qua",song)
     if (AddedSong?.data) {
-      console.log("qua",AddedSong)
       for (let i = 0; i < AddedSong.data.mongoitems.length; i++) {
         if (AddedSong.data.mongoitems[i].name === song.name) {
           setSongpatched(AddedSong.data.mongoitems[i]);
-          console.log("cambiato", AddedSong.data.mongoitems[i])
         }
       }
     } else {
