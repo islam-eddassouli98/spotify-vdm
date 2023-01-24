@@ -4,6 +4,7 @@ import { millisToMinutesAndSeconds } from "./libFunction/time";
 import axios from "axios";
 import { setCurrentSong, setIsPlaying } from "../slices/PlaylistSlice";
 import { setSongs } from "../slices/PlaylistSlice";
+import { setAddedSong } from "../slices/PlaylistSlice";
 
 const SongMongo = () => {
   const [songpatched, setSongpatched] = useState([]);
@@ -47,7 +48,7 @@ const SongMongo = () => {
       )
       .then((response) => {
         console.log(response);
-        dispatch(setSongs(response));
+        dispatch(setAddedSong(response.data));
       })
       .catch((error) => {
         console.error(error);
@@ -57,16 +58,19 @@ const SongMongo = () => {
     //Check if addesdsong.data.mongoitems.name are equal to song.name
     //if yes set songpatched to AddedSong.data.mongoitems[i]
     //if no set songpatched to song
+    console.log("qua",song)
     if (AddedSong?.data) {
+      console.log("qua",AddedSong)
       for (let i = 0; i < AddedSong.data.mongoitems.length; i++) {
         if (AddedSong.data.mongoitems[i].name === song.name) {
           setSongpatched(AddedSong.data.mongoitems[i]);
+          console.log("cambiato", AddedSong.data.mongoitems[i])
         }
       }
     } else {
       setSongpatched(song);
     }
-  }, [song]);
+  }, [song, AddedSong]);
 
   return (
     <div className="pt-5 pb-20">
@@ -111,7 +115,7 @@ const SongMongo = () => {
           </div>
         ))
       ) : (
-        <h1>no songs</h1>
+        <h1 className="flex justify-center items-center text-lg font-bold tracking-wider">NO SONGS</h1>
       )}
     </div>
   );

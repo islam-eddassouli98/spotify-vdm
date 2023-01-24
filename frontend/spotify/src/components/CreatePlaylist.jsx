@@ -20,7 +20,7 @@ const CreatePlaylist = () => {
   //Crea una playlist
   const Addnewplaylist = () => {
     if(!body.image){
-      body.image = "https://i.scdn.co/image/ab67706f00000003a0b2b2b2b2b2b2b2b2b2b2b2";
+      body.image = "https://gogomagazine.it/wp-content/uploads/2018/01/Spotify-logo.jpg";
     }
     axios
       .post(

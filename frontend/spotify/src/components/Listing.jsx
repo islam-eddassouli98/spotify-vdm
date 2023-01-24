@@ -108,10 +108,10 @@ const Listing = () => {
           src={
             playlistId?.images?.[0]?.url
               ? playlistId?.images?.[0]?.url
-              : playlistId?.image
+              : playlistId?.image || "https://gogomagazine.it/wp-content/uploads/2018/01/Spotify-logo.jpg"
           }
           alt="Image Album"
-          className="w-44 h-44 shadow-2xl"
+          className="w-44 h-44 shadow-2xl object-cover"
         />
         <div>
           <p>Playlist</p>
