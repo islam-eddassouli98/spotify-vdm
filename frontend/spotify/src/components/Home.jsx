@@ -14,8 +14,8 @@ const Home = () => {
   const SearchModal = useSelector((state) => state.modal.search);
   const PlaylistPage = useSelector((state) => state.modal.playlist);
   const dispatch = useDispatch();
-  // Prendo i dati dell'utente
 
+  // Prendo i dati dell'utente
   useEffect(() => {
     const getData = async () => {
       try {

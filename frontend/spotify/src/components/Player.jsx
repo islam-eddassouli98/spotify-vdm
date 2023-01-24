@@ -21,6 +21,7 @@ const Player = () => {
   const isPlaying = useSelector((state) => state.playlist.isPlaying);
   const dispatch = useDispatch();
 
+  //Vede se la canzone è in riproduzione e se non lo è la mette in riproduzione
   const fetchCurrentSong = () => {
     if (!songInfo) {
       axios
@@ -45,6 +46,7 @@ const Player = () => {
     }
   };
 
+  //Se la canzone è in riproduzione e non lo è la mette in riproduzione
   const handlePlayPause = () => {
     axios
       .get(`https://api.spotify.com/v1/me/player`, {
@@ -84,7 +86,7 @@ const Player = () => {
         }
       });
   };
-
+//Se la canzone è in riproduzione e non lo è la mette in riproduzione
   const skipPrevious = () => {
     axios
       .post(

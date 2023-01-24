@@ -13,10 +13,15 @@ const CreatePlaylist = () => {
   const body = {
     name: playlistName,
     image: playlistImage,
+    track: [],
+    playlist: [],
   };
 
   //Crea una playlist
   const Addnewplaylist = () => {
+    if(!body.image){
+      body.image = "https://i.scdn.co/image/ab67706f00000003a0b2b2b2b2b2b2b2b2b2b2b2";
+    }
     axios
       .post(
         `http://localhost:8080/api/users/mongoitems/${UserData.data._id}`,

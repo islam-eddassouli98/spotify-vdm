@@ -86,6 +86,7 @@ const Listing = () => {
         console.error(error);
       });
   };
+  console.log(playlistId)
 
   return (
     <div className="h-screen w-[80vw] bg-black text-white  flex-grow overflow-y-scroll scrollbar-hide">
@@ -115,7 +116,7 @@ const Listing = () => {
         <div>
           <p>Playlist</p>
           <h1 className="text-2xl xl:text-5xl font-bold">{playlistId?.name}</h1>
-          {!playlistId?.image ? (
+          {playlistId?.id ? (
             <></>
           ) : (
             <button
@@ -127,7 +128,7 @@ const Listing = () => {
           )}
         </div>
       </section>
-      <div>{!playlistId?.playlist ? <Songs /> : <SongMongo />}</div>
+      <div>{playlistId?.id ? <Songs /> : <SongMongo />}</div>
     </div>
   );
 };
